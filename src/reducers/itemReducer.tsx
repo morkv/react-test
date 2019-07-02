@@ -1,29 +1,24 @@
-// import uuid from 'uuid';
+import moment from 'moment';
 import { GET_ITEMS } from '../actions/types';
 
 const initialState = {
     cases: [
         {
-            case_name: 'case_name', 
+            case_name: 'O.J Simpson vs The People', 
             documents: [
                 { 
                     filename: 'Exhibit R-2', 
-                    addedOn: '12.11.2019', 
+                    addedOn: moment().format("DD/MM/YYYY"), 
                     extension:'pdf'
                 },
                 { 
                     filename: 'Exhibit R-3', 
-                    addedOn: '13.11.2019', 
-                    extension: "pdf"
-                },
-                { 
-                    filename: 'Exhibit R-4', 
-                    addedOn: '14.11.2019', 
+                    addedOn: moment().format("DD/MM/YYYY"), 
                     extension: "pdf"
                 },
                 { 
                     filename: 'Draft Letter to the Prosecutor', 
-                    addedOn: '15.11.2019', 
+                    addedOn: moment().subtract(1, "days").format("DD/MM/YYYY"), 
                     extension: 'docx'
                 }
             ],
@@ -32,6 +27,11 @@ const initialState = {
                     date: 'deadlines_date'
                 }
             ]
+        },
+        {
+            case_name: 'Tramp vs Obama', 
+            documents: [],
+            deadlines: []
         }
     ]
         

@@ -1,19 +1,23 @@
 import * as React from 'react';
 import { 
-  Container
+  Container,
+  Grid
 } from 'semantic-ui-react';
-
 import './App.css';
-import TestComponent from '../components/TestComponent/TestComponent';
-
 import { Provider } from 'react-redux';
 import store from '../store';
+
+import TestComponentContainer from '../containers/TestComponentContainer';
 
 function App() {
   return  (
     <Provider store={store}>
       <Container>
-        <TestComponent />
+        <Grid columns={2}>
+          <Grid.Row centered>
+            <TestComponentContainer />
+          </Grid.Row>
+        </Grid>
       </Container>
     </Provider>
   )

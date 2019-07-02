@@ -1,11 +1,12 @@
 import * as React from 'react';
+import uuid from 'uuid';
 import { 
   Table
 } from 'semantic-ui-react';
 
 import TestComponentTableRow from './TestComponentTableRow';
 
-function TestComponentTable({cases}) {
+function TestComponentTable({rows}) {
     return (
         <Table basic='very' className='table--custom'>
             <Table.Header>
@@ -15,15 +16,7 @@ function TestComponentTable({cases}) {
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                {cases.map(({documents}) => {
-                   return (
-                    documents.map(el => {
-                        return (
-                            <TestComponentTableRow row={el} key={el.addedOn}/>
-                        )
-                    })
-                   )
-                })}
+                {rows.documents.map(row => <TestComponentTableRow row={row} key={uuid()}/>)}
             </Table.Body>
         </Table>
     );
