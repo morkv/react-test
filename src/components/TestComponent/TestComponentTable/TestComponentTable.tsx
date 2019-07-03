@@ -5,9 +5,17 @@ import {
 } from 'semantic-ui-react';
 
 import TestComponentTableRow from './TestComponentTableRow';
+const DOCUMENTS_COUNT = 3;
 
 function TestComponentTable(props: any) {
     let { rows } = props;
+
+    function documentsCount() {
+        if(rows.documents.length >= DOCUMENTS_COUNT) {
+            return DOCUMENTS_COUNT
+        }
+    }
+
     return (
         <Table basic='very' className='table--custom'>
             <Table.Header>
@@ -17,7 +25,7 @@ function TestComponentTable(props: any) {
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                {rows.documents.map((row:any) => <TestComponentTableRow row={row} key={uuid()}/>)}
+                {[...rows.documents].slice(0, documentsCount()).map((row:any) => <TestComponentTableRow row={row} key={uuid()}/>)}
             </Table.Body>
         </Table>
     );
