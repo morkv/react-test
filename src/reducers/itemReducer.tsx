@@ -29,12 +29,19 @@ const initialState = {
         },
         {
             case_name: 'Hillary Clinton vs Donald Trump', 
-            documents: [],
+            documents: [{ 
+                filename: 'Draft Letter to the Prosecutor', 
+                addedOn: moment().subtract(1, "days").format("DD/MM/YYYY"), 
+                extension: 'docx'
+            }],
             deadlines: [{date: 'deadlines_date'}, {date: 'deadlines_date'}]
+        },
+        {
+            case_name: 'Predator vs Alien', 
+            documents: [],
+            deadlines: [{date: 'deadlines_date'}]
         }
     ],
-    loading: false
-        
 };
 
 export default function(state = initialState, action: {type: string}) {
