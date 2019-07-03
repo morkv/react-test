@@ -1,0 +1,31 @@
+td.custom span{
+    position: relative;
+    padding-left: 3rem;
+}
+td.custom span:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+td.custom.custom--pdf span:before {
+    background-image: url('../../../ressources/pdf.png');
+}
+
+td.custom.custom--docx span:before {
+    background-image: url('../../../ressources/docx.png');
+}
+.table--custom {
+    color: gray !important;
+}
+.table--custom th {
+    color: gray !important;
+}

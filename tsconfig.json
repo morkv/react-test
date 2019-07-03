@@ -7,6 +7,7 @@
     "jsx": "react",
     "strict": true,
     "moduleResolution": "node",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "esModuleInterop": true
   }
 }
