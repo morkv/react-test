@@ -52,7 +52,7 @@ class TestComponent extends React.Component<any, any> {
                             {this.state.case.case_name}
                              <List floated='right'>
                                  <List.Item>
-                                    <Label className='label--cusom'>
+                                    <Label className='label--cusom disabled'>
                                         <Button className='button--custom button--custom-sort'>
                                             <Icon name='angle up' />
                                         </Button>
