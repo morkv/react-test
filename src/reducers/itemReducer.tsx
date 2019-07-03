@@ -28,7 +28,7 @@ const initialState = {
             ]
         },
         {
-            case_name: 'Hillary Clinton vs Donald Tramp', 
+            case_name: 'Hillary Clinton vs Donald Trump', 
             documents: [],
             deadlines: [{date: 'deadlines_date'}, {date: 'deadlines_date'}]
         }
