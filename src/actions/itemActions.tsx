@@ -1,4 +1,4 @@
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM} from './types';
+import { GET_ITEMS } from './types';
 
 export const getItems = () => {
     return {

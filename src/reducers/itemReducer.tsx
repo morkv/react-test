@@ -1,6 +1,5 @@
 import moment from 'moment';
 import { GET_ITEMS } from '../actions/types';
-
 const initialState = {
     cases: [
         {
@@ -29,27 +28,21 @@ const initialState = {
             ]
         },
         {
-            case_name: 'Tramp vs Obama', 
+            case_name: 'Hillary Clinton vs Donald Tramp', 
             documents: [],
             deadlines: []
         }
-    ]
+    ],
+    loading: false
         
 };
 
-export default function(state = initialState, action) {
+export default function(state = initialState, action: {type: string}) {
     switch(action.type) {
         case GET_ITEMS:
             return {
-                ...state,
-                // items: action.payload,
-                // loading: false
+                ...state
             };
-        // case ITEMS_LOADING:
-        //     return {
-        //         ...state,
-        //         loading: true
-        //     }
         default:
             return state;
     };

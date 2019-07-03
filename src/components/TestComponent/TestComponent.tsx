@@ -1,25 +1,26 @@
 import * as React from 'react';
-// import { connect } from 'react-redux';
-// import { getItems } from '../../actions/itemActions';
+
 import { 
   Segment,
-  Grid,
   Header,
   Button,
   Accordion,
-  Icon
+  Icon,
+  List,
+  Label
 } from 'semantic-ui-react';
 
 import './TestComponent.css';
 import TestCoomponentTable from './TestComponentTable/TestComponentTable';
 import TestComponentList from './TestComponentList/TestComponentList';
 
-// const OPPONENT_1 = `O.J Simpson`;
-// const OPPONENT_2 = `The People`;
-
-class TestComponent extends React.Component {
-    state = { 
-        isOpen: false
+class TestComponent extends React.Component<any, any> {
+    constructor(props: any){
+        super(props);
+        this.state = { 
+            isOpen: false,
+            case: {}
+        }
     }
     
     handleClick = () => {
@@ -28,28 +29,51 @@ class TestComponent extends React.Component {
         })
     }
 
+    componentWillMount() {
+        this.setState({
+            case: this.props.case
+        });
+    };
+
+    componentDidUpdate(prevProps: {case: object}) {
+        if(prevProps.case !== this.props.case) {
+            this.setState({
+                case: this.props.case
+            })
+        };
+    };
+
     render() {
-        const { isOpen } = this.state;
-        // console.log(this.props.case.documents.length)
          return  (
             <Segment>
                 <Accordion className='accordion--custom'>
-                    <Accordion.Title active={isOpen} index={0}>
+                    <Accordion.Title active={this.state.isOpen} index={0}>
                         <Header as='h3'>
-                            {this.props.case.case_name}
-                            <Button 
-                                floated='right'
-                                onClick={this.handleClick}
-                                className='button--custom'
-                                disabled={this.props.case.documents.length ? false : true}
-                            >
-                                <Icon name='angle down'/>
-                            </Button>
+                            {this.state.case.case_name}
+                             <List floated='right'>
+                                 <List.Item>
+                                    <Label className='label--cusom'>
+                                        <Button className='button--custom button--custom-sort'>
+                                            <Icon name='angle up' />
+                                        </Button>
+                                        <Button className='button--custom button--custom-sort'>
+                                            <Icon name='angle down' />
+                                        </Button>
+                                    </Label>
+                                     <Button
+                                         onClick={this.handleClick}
+                                         className='button--custom button--custom-rotate'
+                                         disabled={this.state.case.documents.length ? false : true}
+                                     >
+                                         <Icon name='angle down' />
+                                     </Button>
+                                 </List.Item>
+                             </List>
                         </Header>
-                        <TestComponentList lists={this.props.case}/>
+                        <TestComponentList lists={this.state.case}/>
                     </Accordion.Title>
-                    <Accordion.Content active={isOpen}>
-                        <TestCoomponentTable rows={this.props.case}/>
+                    <Accordion.Content active={this.state.isOpen}>
+                        <TestCoomponentTable rows={this.state.case}/>
                     </Accordion.Content>
                 </Accordion>
             </Segment>

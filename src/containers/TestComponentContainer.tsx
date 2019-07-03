@@ -11,10 +11,6 @@ import TestComponent from '../components/TestComponent/TestComponent';
 
 class TestComponentContainer extends React.Component {
 
-    componentDidMount(){
-        this.props.getItems();
-    };
-
     render(){
         const { cases } = this.props.case;
         return (

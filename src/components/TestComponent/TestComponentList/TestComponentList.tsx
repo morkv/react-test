@@ -4,14 +4,14 @@ import {
     List,
     Label
   } from 'semantic-ui-react';
+import './TestComponentList.css'
 
-function TestComponentTList({lists}) {
-
+function TestComponentTList(props:any) {
+    let { lists } = props;
     function getTodayDocumentsCount() {
         let addedToday = []
-        lists.documents.map(el => {
+        lists.documents.map((el: any)=> {
             let date = moment(el.addedOn, "DD/MM/YYYY");
-            // moment().diff(date, 'days') > 0 && console.log(date.calendar().split(' ')[0])
             moment().diff(date, 'days') == 0 && addedToday.push(el.addedOn)
         })
         return addedToday.length
@@ -24,10 +24,10 @@ function TestComponentTList({lists}) {
 
     return (
         <List horizontal>
-            <List.Item>
+            <List.Item className="item--custom">
                 Documents added today:<Label className='label--custom'>{getTodayDocumentsCount()}</Label>
             </List.Item>
-            <List.Item>
+            <List.Item className="item--custom">
                 Uncoming deadlines:<Label className='label--custom'>{getDeadlinesCount()}</Label>
             </List.Item>
         </List>

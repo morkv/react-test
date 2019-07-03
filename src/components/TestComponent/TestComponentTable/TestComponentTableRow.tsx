@@ -5,7 +5,8 @@ import {
 } from 'semantic-ui-react';
 import './TestComponentTableRow.css'
 
-function TestComponentTableRow({row}) {
+function TestComponentTableRow(props:any) {
+    let { row } = props;
     function getWhenAdded() {
         let date = moment(row.addedOn, "DD/MM/YYYY");
 

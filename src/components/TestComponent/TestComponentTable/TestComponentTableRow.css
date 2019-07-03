@@ -23,3 +23,9 @@ td.custom.custom--pdf span:before {
 td.custom.custom--docx span:before {
     background-image: url('../../../ressources/docx.png');
 }
+.table--custom {
+    color: gray !important;
+}
+.table--custom th {
+    color: gray !important;
+}

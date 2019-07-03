@@ -6,7 +6,8 @@ import {
 
 import TestComponentTableRow from './TestComponentTableRow';
 
-function TestComponentTable({rows}) {
+function TestComponentTable(props: any) {
+    let { rows } = props;
     return (
         <Table basic='very' className='table--custom'>
             <Table.Header>
@@ -16,7 +17,7 @@ function TestComponentTable({rows}) {
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                {rows.documents.map(row => <TestComponentTableRow row={row} key={uuid()}/>)}
+                {rows.documents.map((row:any) => <TestComponentTableRow row={row} key={uuid()}/>)}
             </Table.Body>
         </Table>
     );
