@@ -9,19 +9,19 @@ import {
 
 import TestComponent from '../components/TestComponent/TestComponent';
 
-class TestComponentContainer extends React.Component {
+class TestComponentContainer extends React.Component<any, any> {
 
     render(){
         const { cases } = this.props.case;
         return (
-            <Grid.Column>
-                {cases.map(el => <TestComponent case={el} key={uuid()}/>)}
+            <Grid.Column className='pt-2'>
+                {cases.map((el: any) => <TestComponent case={el} key={uuid()}/>)}
             </Grid.Column>
         )
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: any) => ({
     case: state.case
 });
 
